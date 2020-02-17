@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>New place is saved!</h3>
+<p>New country is {{country}}. Place is {{place}}. And do they have beach? - {{beach}}.
+mountains {{mountains}}, desert - {{desert}}, forest - {{forest}}, hiking - {{hiking}},
+city - {{city}}, party - {{party}}.</p>
+<h3>What would you like to do now?</h3>
+<div>
+  <a href="{{ url_for('add') }}">Add new place</a><br>
+  <a href="{{ url_for('list') }}">See saved places</a>
+
+</div>
+
+{% endblock %}

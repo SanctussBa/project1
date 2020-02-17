@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>This is list for adding new place</h3>
+<div class="add_place_form">
+  <form class="" action="{{ url_for('save_place') }}" method="post">
+
+    <label for="country">Country: </label>
+    <input type="text" name="country"><br>
+
+    <label for="place">Place: </label>
+    <input type="text" name="place"><br>
+
+    <h3>beach: </h3>
+    <label for="beach">no</label>
+    <input type="radio" name="beach" value="no">
+    <label for="beach">yes</label>
+    <input type="radio" name="beach" value="yes"><br>
+
+    <h3>mountains: </h3>
+    <label for="mountains">no</label>
+    <input type="radio" name="mountains" value="no">
+    <label for="mountains">yes</label>
+    <input type="radio" name="mountains" value="yes"><br>
+
+    <h3>desert: </h3>
+    <label for="desert">no</label>
+    <input type="radio" name="desert" value="no">
+    <label for="desert">yes</label>
+    <input type="radio" name="desert" value="yes"><br>
+
+    <h3>forest: </h3>
+    <label for="forest">no</label>
+    <input type="radio" name="forest" value="no">
+    <label for="forest">yes</label>
+    <input type="radio" name="forest" value="yes"><br>
+
+    <h3>hiking: </h3>
+    <label for="hiking">no</label>
+    <input type="radio" name="hiking" value="no">
+    <label for="hiking">yes</label>
+    <input type="radio" name="hiking" value="yes"><br>
+
+    <h3>city: </h3>
+    <label for="city">no</label>
+    <input type="radio" name="city" value="no">
+    <label for="city">yes</label>
+    <input type="radio" name="city" value="yes"><br>
+
+    <h3>party: </h3>
+    <label for="party">no</label>
+    <input type="radio" name="party" value="no">
+    <label for="party">yes</label>
+    <input type="radio" name="party" value="yes"><br>
+
+    <input type="submit" name="add" value="Add">
+
+  </form>
+
+</div>
+{% endblock %}
