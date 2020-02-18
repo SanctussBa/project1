@@ -1,20 +1,190 @@
+@import "media.css";
+@import url('media.css');
+
 body {
-  background-color: lightblue;
+
   margin: 0;
   padding: 0;
-  display: flex;
-  text-align: center;
+  background-color: #E5E8EF;
+  background-image: url('../../static/img/bg.jpg');
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+/*................... BASE STYLING PART START..................*/
+div.main {
+  background-color: rgba(251, 251, 251, .8);
+  border-right: 20px solid rgb(251, 251, 251);
+  border-left: 20px solid rgb(251, 251, 251);
+  min-height: 100vh;
+  position: relative;
+  width: 70%;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
-h1 {
-  color: red;
+div.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(251, 251, 251);
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 35px;
+  color: #5D6475;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h2 {
-  color: green;
+  font-size: 30px;
 }
 
 h3 {
-  color: blue;
+  font-size: 20px;
+}
+
+#logo {
+  height: 90px;
+  padding: 20px 0px 20px 60px;
+}
+/*................... Footer STYLING PART start..................*/
+div.footer {
+  height: 130px;
+  background-color: rgb(251, 251, 251);
+  position: absolute;
+  bottom: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+}
+
+div.links {
+  display: flex;
+  flex-direction: column;
+
+}
+div.links, div.year, div.delete {
+  text-align: center;
+  padding-top: 20px;
+}
+div.links a, div.delete a, label {
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Roboto Mono', monospace;
+  color: inherit;
+  text-transform: uppercase;
+
+}
+
+div.links a::after, div.delete a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #5D6475;
+  transition: width .3s;
+}
+
+div.links a:hover::after, div.delete a:hover::after {
+  width: 50%;
+}
+
+/*................... Footer STYLING PART start..................*/
+/*................... BASE STYLING PART END..................*/
+
+
+/*................... INDEX STYLING PART START..................*/
+
+div.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 50px;
+
+}
+
+div.buttons {
+  min-height: 350px;
+}
+div.buttons a{
+  display: grid;
+  text-decoration: none;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto 150px;
+  place-items: center;
+}
+
+img.add-top {
+  height: 90px;
+  width: 80px;
+}
+
+img.add-bottom {
+  width: auto;
+  height: 70px;
+}
+
+/*.....hover effect on links...start...*/
+
+a.main-menu::after{
+  content: '';
+  display:block;
+  width: 0;
+  height: 2px;
+  background: #5D6475;
+  transition: width .3s;
+}
+
+a.main-menu:hover::after {
+  width: 100%;
+}
+
+/*.....hover effect on links...end...*/
+
+img.add-top {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+
+/*................... ADD NEW PLACE PART START..................*/
+
+
+
+
+
+/*................... ADD NEW PLACE PART END..................*/
+
+div.table-container {
+
+  display: inline-flex;
+  flex-direction: row;
+  background-color: white;
+  border: solid 1px grey;
+}
+
+div.column {
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+div.column p {
+  border-bottom: solid 1px lightgrey;
 }

@@ -4,15 +4,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Input program</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static/css/master.css">
   </head>
   <body>
-    <div class="container">
-      <h1>Data input program</h1>
-      {% block content %}
-      {% endblock %}
+    <div class="main">
+      <div class="nav">
+        <a href="{{ url_for('index') }}">
+          <img id="logo" src="../../static/img/data.png" alt="logo">
+        </a>
+        <h1>Data input program</h1>
+      </div>
+      <div class="container">
+
+        {% block content %}
+        {% endblock %}
+
+      </div>
+      <div class="footer">
+        <div class="links">
+          <a href="{{ url_for('index') }}">home</a>
+          <a href="{{ url_for('about') }}">about</a>
+          <a href="{{ url_for('add') }}">add new place</a>
+          <a href="{{ url_for('list') }}">see saved places</a>
+
+        </div>
+        <div class="year">
+          <h3>2020</h3>
+
+        </div>
+        <div class="delete">
+          <a href="{{ url_for('index') }}">delete database</a>
+
+        </div>
+
+
+      </div>
 
     </div>
+
+
+
 
   </body>
 </html>

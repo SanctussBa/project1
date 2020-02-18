@@ -1,10 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div>
-  <a href="{{ url_for('add') }}">Add new place</a><br>
-  <a href="{{ url_for('list') }}">See saved places</a>
-
+<div class="menu">
+  <div class="buttons">
+    <a class="main-menu" href="{{ url_for('add') }}">
+      <img class="add-top" src="../../static/img/location-top.png" alt="location">
+      <img class="add-bottom" src="../../static/img/location-botton.png" alt="add">
+      <h2>Add new place</h2>
+    </a>
+  </div>
+  <div class="buttons">
+    <a class="main-menu" href="{{ url_for('list') }}">
+      <img class="add-top" src="../../static/img/lupa.png" alt="lupa">
+      <img class="add-bottom" src="../../static/img/database.png" alt="database">
+      <h2>See saved places</h2>
+    </a>
+  </div>
 </div>
 
 {% endblock %}

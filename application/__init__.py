@@ -22,9 +22,12 @@ def add():
 def list():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-    countries = c.execute('SELECT Country FROM database')
-    items = countries.fetchall()
-    return render_template('list.html', items=items)
+    c.execute('SELECT * FROM database')
+    list = c.fetchall()
+
+    return render_template('list.html', list=list)
+
+    conn.close()
 
 @app.route('/save-place', methods=["GET", "POST"])
 def save_place():
@@ -50,3 +53,6 @@ def save_place():
 
 
     conn.close()
+@app.route('/about')
+def about():
+    return render_template('about.html')

@@ -1,0 +1,42 @@
+@media only screen and (max-width: 600px) {
+  div.main {
+    border-left: 2px solid rgb(251, 251, 251);
+    border-right: 2px solid rgb(251, 251, 251);
+    width: 90%;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  div.nav {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1, h2, h3 {
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h2 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h2 {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  div.menu {
+    flex-direction: column;
+  }
+}
