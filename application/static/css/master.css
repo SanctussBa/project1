@@ -11,6 +11,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Roboto Mono', monospace;
 }
 /*................... BASE STYLING PART START..................*/
 div.main {
@@ -24,6 +25,7 @@ div.main {
   margin-left: auto;
   margin-right: auto;
 
+
 }
 
 div.nav {
@@ -34,7 +36,7 @@ div.nav {
   background-color: rgb(251, 251, 251);
 }
 
-h1, h2, h3 {
+h1, h2, h3, label {
   font-family: 'Roboto Mono', monospace;
   font-size: 35px;
   color: #5D6475;
@@ -46,8 +48,9 @@ h2 {
   font-size: 30px;
 }
 
-h3 {
+h3, label {
   font-size: 20px;
+  margin: 0;
 }
 
 #logo {
@@ -75,7 +78,7 @@ div.links, div.year, div.delete {
   text-align: center;
   padding-top: 20px;
 }
-div.links a, div.delete a, label {
+div.links a, div.delete a {
   text-decoration: none;
   font-size: 16px;
   font-family: 'Roboto Mono', monospace;
@@ -97,7 +100,7 @@ div.links a:hover::after, div.delete a:hover::after {
   width: 50%;
 }
 
-/*................... Footer STYLING PART start..................*/
+/*................... Footer STYLING PART end.................*/
 /*................... BASE STYLING PART END..................*/
 
 
@@ -164,13 +167,170 @@ img.add-top {
 
 
 /*................... ADD NEW PLACE PART START..................*/
+div.add-place-form {
+  display: grid;
+  grid-template-columns: 30% 25% auto;
+  grid-template-rows: 50px 50px auto 100px;
+  grid-template-areas:
+  "lb-country ip-country ."
+  "lb-place ip-place ."
+  "yes-no-form yes-no-form ."
+  ". form-img .";
+}
 
+div.lb-country {
+  grid-area: lb-country;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
 
+div.ip-country {
+  grid-area: ip-country;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+div.ip-country input {
+  width: 100%;
+}
+div.lb-place {
+  grid-area: lb-place;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
 
+div.ip-place {
+  grid-area: ip-place;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
 
+div.ip-place input {
+  width: 100%;
+}
+div.yes-no-form {
+  padding-top: 40px;
+  grid-area: yes-no-form;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+div.yes-no {
+  text-align: right;
+  padding-top: 10px;
+}
+div.form-img {
+  grid-area: form-img;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 400px;
+  max-height: 200px;
+  overflow: auto;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+/*......input field characteristics...start..*/
+
+input[type=text] {
+  font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
+  color: black;
+  text-transform: uppercase;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5%;
+  resize: vertical;
+  outline: none !important;
+
+}
+
+input[type=submit] {
+
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  place-items: center;
+  border-radius: 30%;
+  background: rgb(93,100,117);
+  background: radial-gradient(circle, rgba(93,100,117,1) 11%, rgba(59,74,53,0) 100%);
+  transition: ease-in-out 0.4s;
+}
+
+input[type=text]:focus {
+  box-shadow: 0px 0px 5px darkgrey;
+}
+input[type=submit]:hover {
+  background: rgb(93,100,117);
+  background: radial-gradient(circle, rgba(93,100,117,1) 39%, rgba(59,74,53,0) 100%);
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+label.padding-label {
+  padding-right: 5px;
+}
 
 /*................... ADD NEW PLACE PART END..................*/
+/*................... ABOUT PART Start..................*/
+div.text{
+  padding: 50px;
+}
+/*................... ABOUT PART End..................*/
+/*................... saved.html PART start..................*/
+div.saved-place-container {
+  padding-left: 40px;
+  padding-right: 200px;
+}
 
+
+/*................... saved.html PART End..................*/
 div.table-container {
 
   display: inline-flex;

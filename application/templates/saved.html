@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<h3>New place is saved!</h3>
-<p>New country is {{country}}. Place is {{place}}. And do they have beach? - {{beach}}.
-mountains {{mountains}}, desert - {{desert}}, forest - {{forest}}, hiking - {{hiking}},
-city - {{city}}, party - {{party}}.</p>
-<h3>What would you like to do now?</h3>
-<div>
-  <a href="{{ url_for('add') }}">Add new place</a><br>
-  <a href="{{ url_for('list') }}">See saved places</a>
+<h2>{{place | capitalize}} is saved!</h2>
 
+<h3>Let's go to {{country}}. There is a cool place named '{{place | capitalize}}'.</h3>
+<br>
+<h3>Little bit about {{place | capitalize}}...</h3>
+<br>
+<div class="saved-place-container">
+  <p class="saved-p">{{b}}</p>
+  <p class="saved-p">{{m}}</p>
+  <p class="saved-p">{{d}}</p>
+  <p class="saved-p">{{f}}</p>
+  <p class="saved-p">{{h}}</p>
+  <p class="saved-p">{{ci}}</p>
+  <p class="saved-p">{{p}}</p>
+
+  <br>
+  <br>
 </div>
+
 
 {% endblock %}
