@@ -1,5 +1,3 @@
-@import "media.css";
-@import url('media.css');
 
 body {
 
@@ -48,6 +46,7 @@ h2 {
   font-size: 30px;
 }
 
+
 h3, label {
   font-size: 20px;
   margin: 0;
@@ -74,6 +73,7 @@ div.links {
   flex-direction: column;
 
 }
+
 div.links, div.year, div.delete {
   text-align: center;
   padding-top: 20px;
@@ -114,9 +114,12 @@ div.menu {
 
 }
 
+
 div.buttons {
   min-height: 350px;
 }
+
+
 div.buttons a{
   display: grid;
   text-decoration: none;
