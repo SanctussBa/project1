@@ -18,14 +18,99 @@ def index():
 def add():
     return render_template('add.html')
 
+
+@app.route('/selected', methods=["GET", "POST"])
+def selected():
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    c.execute('SELECT Country FROM database')# Select list of unique countries for select option
+    list_of_all_countries = c.fetchall()
+    x = []
+    for country in list_of_all_countries:
+        if country not in x:
+            x.append(country)
+    unique_countries = map(''.join,x)
+
+
+    choice_country = str(request.form.get("country-choice", ""))
+    selector = str(request.form['selector'])
+
+    # Country and Selector are not chosen
+    if choice_country == "all" and selector == "any":
+        c.execute('SELECT * FROM database')# Select main list of all data
+        lis = c.fetchall()
+
+    # ANY COUNTRY but CHOSEN PROPERTY OF PLACE
+    elif choice_country == "all" and selector == "beach":
+        c.execute('SELECT * FROM database where Beach = ?', ['yes'])
+        lis = c.fetchall()
+    elif choice_country == "all" and selector == "mountains":
+        c.execute('SELECT * FROM database where Mountains = ?', ['yes'])
+        lis = c.fetchall()
+    elif choice_country == "all" and selector == "desert":
+        c.execute('SELECT * FROM database where Desert = ?', ['yes'])
+        lis = c.fetchall()
+    elif choice_country == "all" and selector == "forest":
+        c.execute('SELECT * FROM database where Forest = ?', ['yes'])
+        lis = c.fetchall()
+    elif choice_country == "all" and selector == "hiking":
+        c.execute('SELECT * FROM database where Hiking = ?', ['yes'])
+        lis = c.fetchall()
+    elif choice_country == "all" and selector == "city":
+        c.execute('SELECT * FROM database where City = ?', ['yes'])
+        lis = c.fetchall()
+    elif choice_country == "all" and selector == "party":
+        c.execute('SELECT * FROM database where Party = ?', ['yes'])
+        lis = c.fetchall()
+
+    # particular country and no Selector
+    elif choice_country != "all" and selector == "any":
+        c.execute('SELECT * FROM database WHERE Country = ?', [choice_country])
+        lis = c.fetchall()
+
+    # Particular country and particular Selector
+
+    elif choice_country != "all" and selector == "beach":
+        c.execute('SELECT * FROM database WHERE Country = ? AND Beach = ?', [choice_country, "yes"])
+
+    elif choice_country != "all" and selector == "mountains":
+        c.execute('SELECT * FROM database WHERE Country = ? AND Mountains = ?', [choice_country, "yes"])
+        lis = c.fetchall()
+    elif choice_country != "all" and selector == "desert":
+        c.execute('SELECT * FROM database WHERE Country = ? AND Desert = ?', [choice_country, "yes"])
+        lis = c.fetchall()
+    elif choice_country != "all" and selector == "forest":
+        c.execute('SELECT * FROM database WHERE Country = ? AND Forest = ?', [choice_country, "yes"])
+        lis = c.fetchall()
+    elif choice_country != "all" and selector == "hiking":
+        c.execute('SELECT * FROM database WHERE Country = ? AND Hiking = ?', [choice_country, "yes"])
+        lis = c.fetchall()
+    elif choice_country != "all" and selector == "city":
+        c.execute('SELECT * FROM database WHERE Country = ? AND City = ?', [choice_country, "yes"])
+        lis = c.fetchall()
+    elif choice_country != "all" and selector == "party":
+        c.execute('SELECT * FROM database WHERE Country = ? AND Party = ?', [choice_country, "yes"])
+        lis = c.fetchall()
+
+    return render_template('list.html', lis=lis, unique_countries=unique_countries)
+    conn.close()
+
 @app.route('/list', methods=["GET", "POST"])
 def list():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-    c.execute('SELECT * FROM database')
-    list = c.fetchall()
 
-    return render_template('list.html', list=list)
+    c.execute('SELECT Country FROM database')# Select list of unique countries for select option
+    list_of_all_countries = c.fetchall()
+    x = []
+    for country in list_of_all_countries:
+        if country not in x:
+            x.append(country)
+    unique_countries = map(''.join,x)
+
+    c.execute('SELECT * FROM database')# Select main list of all data
+    lis = c.fetchall()
+    return render_template('list.html', lis=lis, unique_countries=unique_countries)
 
     conn.close()
 
@@ -123,3 +208,11 @@ def save_place():
 @app.route('/about')
 def about():
     return render_template('about.html')
+@app.route('/delete')
+def delete_all():
+    conn = sqlite3.connect('database.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM database')
+    conn.commit()
+    return render_template('delete.html')
+    conn.close()

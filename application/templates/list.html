@@ -1,64 +1,73 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>This is list of all places</h2>
+<div class="list-page">
+  <div class="database-top">
+    <h2>Database</h2>
+    <form action="{{ url_for('selected') }}" method="post">
 
-<div class="table-container">
-  <div class="column">
-    <h3>Country</h3>
-    {% for item in list %}
-    <p>{{item[0]}}</p>
-    {% endfor %}
+
+
+      <label for="country-choice">Only in </label>
+      <select type="text" name="country-choice" value="" >
+        <option value="all" selected>All countries</option>
+        {% for country in unique_countries %}
+        <option value="{{country}}">{{country}}</option>
+        {%endfor%}
+      </select>
+
+
+
+      <label for="selector">Select:</label>
+      <select class="custom-select" name="selector">
+        <option value="any" selected>No preference</option>
+        <option value="beach">Beach</option>
+        <option value="mountains">Mountains</option>
+        <option value="desert">Desert</option>
+        <option value="forest">Forest</option>
+        <option value="hiking">Hiking</option>
+        <option value="city">City</option>
+        <option value="party">Party</option>
+      </select>
+      <input class="smaller" type="submit" name="submit" value="Select">
+
+    </form>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Country</th>
+          <th>Place</th>
+          <th>Beach</th>
+          <th>Mountains</th>
+          <th>Desert</th>
+          <th>Forest</th>
+          <th>Hiking</th>
+          <th>City</th>
+          <th>Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for items in lis %}
+        <tr>
+
+          <td>{{items[0]}}</td>
+          <td>{{items[1]}}</td>
+          <td>{{items[2]}}</td>
+          <td>{{items[3]}}</td>
+          <td>{{items[4]}}</td>
+          <td>{{items[5]}}</td>
+          <td>{{items[6]}}</td>
+          <td>{{items[7]}}</td>
+          <td>{{items[8]}}</td>
+
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+
   </div>
 
-  <div class="column">
-    <h3>Place</h3>
-    {% for item in list %}
-    <p>{{item[1]}}</p>
-    {% endfor %}
-
-  </div>
-  <div class="column">
-    <h3>Beach</h3>
-    {% for item in list %}
-    <p>{{item[2]}}</p>
-    {% endfor %}
-  </div>
-  <div class="column">
-    <h3>Mountains</h3>
-    {% for item in list %}
-    <p>{{item[3]}}</p>
-    {% endfor %}
-  </div>
-  <div class="column">
-    <h3>Desert</h3>
-    {% for item in list %}
-    <p>{{item[4]}}</p>
-    {% endfor %}
-  </div>
-  <div class="column">
-    <h3>Forest</h3>
-    {% for item in list %}
-    <p>{{item[5]}}</p>
-    {% endfor %}
-  </div>
-  <div class="column">
-    <h3>Hiking</h3>
-    {% for item in list %}
-    <p>{{item[6]}}</p>
-    {% endfor %}
-  </div>
-  <div class="column">
-    <h3>City</h3>
-    {% for item in list %}
-    <p>{{item[7]}}</p>
-    {% endfor %}
-  </div>
-  <div class="column">
-    <h3>Party</h3>
-    {% for item in list %}
-    <p>{{item[8]}}</p>
-    {% endfor %}
-  </div>
 </div>
-
 {% endblock %}
